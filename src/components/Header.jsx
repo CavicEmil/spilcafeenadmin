@@ -15,8 +15,7 @@ export default function Header() {
     };
 
     return (
-        <header className="relative w-full sticky top-0 bg-white mt-4 z-10">
-            <div className="absolute bottom-0 left-0 right-0 top-[82px] h-px bg-primary-grey" />
+        <header className="sticky top-0 bg-white z-10">
             <div className="relative flex items-center justify-between px-4 py-2">
                 <div className="absolute left-[10%] top-[16px] ">
                 <img
@@ -74,6 +73,7 @@ export default function Header() {
                     </div>
                 ) : null}
             </div>
+            <div className="h-px bg-primary-grey"></div>
         </header>
     );
 }
