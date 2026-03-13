@@ -20,24 +20,24 @@ async function hashPassword(password, salt) {
   return Array.from(new Uint8Array(derivedBits)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// Verify password
+/* Verify password */
 async function verifyPassword(inputPassword, storedSalt, storedHashedPassword) {
   const salt = new Uint8Array(storedSalt.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
   const hashedInput = await hashPassword(inputPassword, salt);
   return hashedInput === storedHashedPassword;
 }
 
-// Save user to localStorage
+/* Save user to localStorage */
 function saveUser(user) {
   localStorage.setItem('user', JSON.stringify(user));
 }
 
-// Load user from localStorage
+/* Load user from localStorage */
 function loadUser() {
   return JSON.parse(localStorage.getItem('user'));
 }
 
-// Logout (clear localStorage)
+/* Logout (clear localStorage) */
 function logout() {
   localStorage.removeItem('user');
 }

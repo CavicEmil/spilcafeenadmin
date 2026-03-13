@@ -4,7 +4,7 @@ export default function AddGameModal({ isOpen, onClose, onAddGame }) {
   if (!isOpen) return null;
 
   const [newGame, setNewGame] = useState({
-    row_id: Date.now(), // Unique ID
+    row_id: Date.now(), 
     boardgame: '',
     description: '',
     genres: '',

@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Landing from './views/Landing';
 import Import from './views/Import';
 import Dashboard from './views/Dashboard';
+import Dolphins from './views/Dolphins';
 import './App.css';
 
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: '/dolphins',
+        element: <Dolphins />,
       },
     ],
   },

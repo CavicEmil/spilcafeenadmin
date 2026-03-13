@@ -24,7 +24,7 @@ export default function Dashboard() {
         addGame(newGame);
     };
 
-// Search function
+/* Search function */
     const handleSearch = (searchTerm) => {
     if (!searchTerm) {
         setFilteredGames(games);
@@ -39,7 +39,7 @@ export default function Dashboard() {
     setFilteredGames(filtered);
     };
 
-    // Filter function
+    /* Filter function */
     const handleFilter = (genre) => {
     if (!genre) {
         setFilteredGames(games);
@@ -53,7 +53,7 @@ export default function Dashboard() {
     setFilteredGames(filtered);
     };
 
-  // Sort function
+  /* Sort function */
   const handleSort = (sortBy) => {
     let sortedGames = [...filteredGames];
     switch (sortBy) {

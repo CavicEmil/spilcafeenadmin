@@ -44,11 +44,11 @@ export async function fetchHotGames(limit = 50) {
                 title: game.name,
                 genres: game.categories || [],
                 difficulty: game.averageRating || 'N/A',
-                userRating: game.averageRating ? Math.round(parseFloat(game.averageRating) / 2) : 0, // Convert 1-10 to 1-5
+                userRating: game.averageRating ? Math.round(parseFloat(game.averageRating) / 2) : 0, 
                 minPlayers: game.minPlayers || 'N/A',
                 maxPlayers: game.maxPlayers || 'N/A',
                 playDuration: `${game.minPlaytime || '?'} - ${game.maxPlaytime || '?'} min`,
-                familyFriendly: game.minAge ? parseInt(game.minAge) <= 10 : false, // Simple heuristic
+                familyFriendly: game.minAge ? parseInt(game.minAge) <= 10 : false,
                 shortDescription: game.description?.substring(0, 200) + '...' || 'No description available',
                 longDescription: game.description || 'No description available'
             }));

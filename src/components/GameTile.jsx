@@ -5,7 +5,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedGame, setEditedGame] = useState({
     ...game,
-    genres: game.game_info?.categories?.join(', ') || '', // Convert genres array to comma-separated string
+    genres: game.game_info?.categories?.join(', ') || '',
   });
 
   const handleChange = (e) => {
@@ -14,14 +14,12 @@ export default function GameTile({ game, onDelete, onUpdate }) {
   };
 
   const handleSave = () => {
-    // Convert comma-separated genres string back to an array
     const updatedGame = {
       ...editedGame,
       game_info: {
         ...game.game_info,
         categories: editedGame.genres.split(',').map(item => item.trim()),
       },
-      // Ensure other nested fields are preserved
       player_counts: {
         ...game.player_counts,
         min_players: parseInt(editedGame.min_players) || game.player_counts.min_players,
@@ -48,7 +46,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
 
 
   return (
-    <div className="bg-primary-grey rounded-lg p-4 shadow-sm">
+    <div className="bg-secondary-grey rounded-lg p-4 shadow-sm">
       {isEditing ? (
         <div className="space-y-2">
           {/* Title */}
@@ -59,7 +57,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
               name="boardgame"
               value={editedGame.boardgame}
               onChange={handleChange}
-              className="w-full p-2 rounded border border-primary-grey"
+              className="w-full p-2 rounded border border-primary-grey bg-primary-white"
             />
           </div>
 
@@ -70,20 +68,20 @@ export default function GameTile({ game, onDelete, onUpdate }) {
               name="description"
               value={editedGame.description}
               onChange={handleChange}
-              className="w-full p-2 rounded border border-primary-grey"
+              className="w-full p-2 rounded border border-primary-grey bg-primary-white"
               rows="2"
             />
           </div>
 
           {/* Genres (comma-separated) */}
           <div>
-            <label className="block text-sm font-medium text-primary-black">Genres (comma-separated)</label>
+            <label className="block text-sm font-medium text-primary-black ">Genres (comma-separated)</label>
             <input
               type="text"
               name="genres"
               value={editedGame.genres}
               onChange={handleChange}
-              className="w-full p-2 rounded border border-primary-grey"
+              className="w-full p-2 rounded border bg-primary-white border-primary-grey"
             />
           </div>
 
@@ -96,7 +94,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
                 name="min_players"
                 value={editedGame.min_players || game.player_counts.min_players}
                 onChange={handleChange}
-                className="w-full p-2 rounded border border-primary-grey"
+                className="w-full p-2 rounded bg-primary-white border border-primary-grey"
               />
             </div>
             <div className="flex-1">
@@ -106,7 +104,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
                 name="max_players"
                 value={editedGame.max_players || game.player_counts.max_players}
                 onChange={handleChange}
-                className="w-full p-2 rounded border border-primary-grey"
+                className="w-full p-2 bg-primary-white rounded border border-primary-grey"
               />
             </div>
           </div>
@@ -120,7 +118,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
                 name="min_playtime"
                 value={editedGame.min_playtime || game.playtime.min_playtime}
                 onChange={handleChange}
-                className="w-full p-2 rounded border border-primary-grey"
+                className="w-full p-2 bg-primary-white rounded border border-primary-grey"
               />
             </div>
             <div className="flex-1">
@@ -130,7 +128,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
                 name="max_playtime"
                 value={editedGame.max_playtime || game.playtime.max_playtime}
                 onChange={handleChange}
-                className="w-full p-2 rounded border border-primary-grey"
+                className="w-full p-2 bg-primary-white rounded border border-primary-grey"
               />
             </div>
           </div>
@@ -142,7 +140,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
               name="minimum_age"
               value={editedGame.minimum_age || game.minimum_age}
               onChange={handleChange}
-              className="w-full p-2 rounded border border-primary-grey"
+              className="w-full p-2 bg-primary-white rounded border border-primary-grey"
             >
               <option value="12">Yes (≤ 12)</option>
               <option value="13">No (&gt; 12)</option>
@@ -166,7 +164,7 @@ export default function GameTile({ game, onDelete, onUpdate }) {
           </div>
         </div>
       ) : (
-        // View Mode (unchanged from previous)
+        /* Gamecard View */
         <div className="space-y-2">
           <h3 className="text-subheader font-semibold text-primary-black">{game.boardgame}</h3>
           <p className="text-body text-primary-black">{game.description}</p>

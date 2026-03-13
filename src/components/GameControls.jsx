@@ -44,7 +44,7 @@ export default function GameControls({ onSearch, onFilter, onSort }) {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by title or description..."
-              className="flex-1 p-2 rounded border border-primary-grey"
+              className="flex-1 p-2 rounded-full border border-primary-grey"
             />
             <button
               type="submit"
@@ -62,7 +62,7 @@ export default function GameControls({ onSearch, onFilter, onSort }) {
             <select
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="flex-1 p-2 rounded border border-primary-grey"
+              className="flex-1 p-2 rounded-full border border-primary-grey"
             >
               <option value="">All Genres</option>
               {genres.map((genre, index) => (

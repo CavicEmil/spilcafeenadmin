@@ -1,5 +1,6 @@
 import { loadUser } from '../utils/auth';
 import Login from '../components/Login';
+import { Link } from 'react-router-dom';
 
 export default function Landing() {
   const user = loadUser();
@@ -16,7 +17,18 @@ export default function Landing() {
           </p>
         </div>
       ) : (
-        <Login />
+        <div className="relative min-h-screen">
+          <div className="flex flex-col h-full">
+            <div className="flex-grow">
+              <Login />
+            </div>
+            <div className="p-4 self-end">
+              <Link to="/dolphins" className="text-primary-red hover:underline">
+                Don't mind me
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
