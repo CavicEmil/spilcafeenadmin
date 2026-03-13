@@ -34,7 +34,7 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="bg-primary-grey p-8 rounded-lg max-w-sm mx-auto mt-12">
+    <div className="bg-secondary-grey p-8 rounded-lg max-w-sm mx-auto mt-12">
       <h1 className="text-primary-red text-header font-semibold mb-4">Spilcafeen Admin</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
